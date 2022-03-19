@@ -2,6 +2,8 @@
   "name": "solid-a11y-dialog",
   "version": "0.0.1",
   "description": "Solid implementation of a11y-dialog to build lightweight yet flexible script to create accessible dialog windows",
+  "bugs": "https://github.com/Matth10/solid-a11y-dialog/issues",
+  "homepage": "https://github.com/Matth10/solid-a11y-dialog",
   "keywords": [
     "modal",
     "dialog",
@@ -11,9 +13,6 @@
     "a11y-dialog",
     "solid-js",
     "component"
-  ],
-  "files": [
-    "dist"
   ],
   "license": "MIT",
   "author": "Matth10",
