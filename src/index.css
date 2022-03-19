@@ -1,0 +1,122 @@
+@import 'https://unpkg.com/open-props';
+@import 'https://unpkg.com/open-props/normalize.min.css';
+
+:root {
+  --brand-light: var(--violet-6);
+  --text1-light: var(--gray-8);
+  --text2-light: var(--gray-7);
+  --surface1-light: var(--gray-2);
+  --surface2-light: var(--gray-0);
+  --surface3-light: var(--gray-1);
+  --surface4-light: var(--gray-3);
+  --brand-dark: var(--violet-6);
+  --text1-dark: var(--gray-1);
+  --text2-dark: var(--gray-3);
+  --surface1-dark: var(--gray-9);
+  --surface2-dark: var(--gray-8);
+  --surface3-dark: var(--gray-7);
+  --surface4-dark: var(--gray-6);
+
+  --brand: var(--brand-light);
+  --text1: var(--text1-light);
+  --text2: var(--text2-light);
+  --surface1: var(--surface1-light);
+  --surface2: var(--surface2-light);
+  --surface3: var(--surface3-light);
+  --surface4: var(--surface4-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand: var(--brand-dark);
+
+    --text1: var(--text1-dark);
+    --text2: var(--text2-dark);
+
+    --surface1: var(--surface1-dark);
+    --surface2: var(--surface2-dark);
+    --surface3: var(--surface3-dark);
+    --surface4: var(--surface4-dark);
+  }
+}
+
+h1 {
+  font-size: var(--size-7);
+}
+
+button {
+  box-shadow: var(--shadow-1);
+  border-radius: var(--radius-conditional-1);
+  border: var(--border-size-1) solid var(--surface-3);
+}
+
+.-primary {
+  background: var(--brand);
+  color: var(--text-1);
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.dialog-container,
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--surface-1);
+  animation: fade-in 200ms both;
+}
+
+.dialog-container {
+  z-index: 2;
+  display: flex;
+}
+
+.dialog-container[aria-hidden='true'] {
+  display: none;
+}
+
+.dialog-overlay {
+  background-color: rgba(43, 46, 56, 0.9);
+}
+
+.dialog-content {
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  background-color: var(--surface-2);
+  box-shadow: var(--shadow-3);
+  padding-inline: var(--size-4);
+  padding-block: var(--size-3);
+  overflow: auto;
+  border-radius: var(--radius-conditional-2);
+  border: var(--border-size-1) solid var(--surface-3);
+  background: var(--surface-2);
+  animation: fade-in 400ms 200ms both, slide-up 400ms 200ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog-close {
+    transition: none;
+  }
+  .dialog-content {
+    animation: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(10%);
+  }
+}

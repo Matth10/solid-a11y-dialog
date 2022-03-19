@@ -1,5 +1,6 @@
 import { render } from 'solid-js/web'
 
-import { TodoList } from './todo-list'
+import { App } from './todo-list'
+import './index.css'
 
-render(() => <TodoList />, document.getElementById('root'))
+render(() => <App />, document.getElementById('root'))
