@@ -1,10 +1,4 @@
-import {
-  JSX,
-  createUniqueId,
-  splitProps,
-  mergeProps,
-  Accessor,
-} from 'solid-js'
+import { JSX, createUniqueId, splitProps, mergeProps, Accessor } from 'solid-js'
 import A11yDialogInstance from 'a11y-dialog'
 import { DialogRole, useA11yDialogInstance } from './shared'
 
@@ -50,7 +44,7 @@ const defaultProps = {
 export const useA11yDialog = (props?: UseA11yDialogProps): UseA11yDialogResults => {
   const [local] = splitProps(mergeProps(defaultProps, props || {}), ['id', 'role', 'titleId'])
 
-  const {instance, ref, hide} = useA11yDialogInstance()
+  const { instance, ref, hide } = useA11yDialogInstance()
   const titleId = local.titleId || createUniqueId()
 
   return [
