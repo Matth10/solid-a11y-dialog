@@ -1,0 +1,28 @@
+.a11ydialog-container,
+.a11ydialog-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.a11ydialog-container {
+  z-index: 10;
+  display: grid;
+  place-items: center;
+}
+
+.a11ydialog-container[aria-hidden='true'] {
+  display: none;
+}
+
+.a11ydialog-overlay {
+  background-color: gray;
+}
+
+.a11ydialog-dialog {
+  z-index: 10;
+  position: relative;
+  background-color: white;
+}
