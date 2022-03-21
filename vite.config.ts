@@ -2,6 +2,7 @@
 /// <reference types="vite/client" />
 
 import { defineConfig } from 'vite'
+import path from 'path'
 import solidPlugin from 'vite-plugin-solid'
 
 export default defineConfig({
@@ -23,10 +24,23 @@ export default defineConfig({
     threads: false,
     isolate: false,
   },
+
   build: {
+    lib: {
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'index',
+      formats: ['es', 'cjs'],
+      fileName: format => `index.${format}.js`,
+    },
+    rollupOptions: {
+      // make sure to externalize deps that shouldn't be bundled
+      // into your library
+      external: ['solid-js', 'a11y-dialog'],
+    },
     target: 'esnext',
     polyfillDynamicImport: false,
   },
+
   resolve: {
     conditions: ['development', 'browser'],
   },
