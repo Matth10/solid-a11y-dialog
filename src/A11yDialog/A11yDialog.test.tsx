@@ -65,7 +65,7 @@ describe('<A11Dialog/>', () => {
   })
 
   it('should render a button to show the dialog', async () => {
-    const {debug} =render(() => (
+    render(() => (
       <A11yDialog>
         <A11yDialog.Open>Open Dialog</A11yDialog.Open>
         <A11yDialog.Container>
@@ -76,7 +76,7 @@ describe('<A11Dialog/>', () => {
       </A11yDialog>
     ))
 
-    expect(screen.getByRole('dialog', {hidden:true}).getAttribute('aria-hidden')).toBe('true')
+    expect(screen.getByRole('dialog', { hidden: true }).getAttribute('aria-hidden')).toBe('true')
     const button = screen.getByText('Open Dialog') as HTMLButtonElement
     await clickButton(button)
 
@@ -102,7 +102,7 @@ describe('<A11Dialog/>', () => {
 
     const close = screen.getByText('Close Dialog') as HTMLButtonElement
     await clickButton(close)
-    expect(screen.getByRole('dialog', {hidden:true}).getAttribute('aria-hidden')).toBe('true')
+    expect(screen.getByRole('dialog', { hidden: true }).getAttribute('aria-hidden')).toBe('true')
   })
 })
 

@@ -1,5 +1,5 @@
-import A11yDialog from './A11yDialog/A11yDialog'
-import { A11yDialogComposable } from './A11yDialogComposable.example'
+import A11yDialog from '../A11yDialog/A11yDialog'
+import { A11yDialogComposable } from './A11yDialog.composable'
 
 export const App = () => {
   return (

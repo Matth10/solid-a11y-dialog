@@ -1,5 +1,5 @@
 import { JSX, splitProps } from 'solid-js'
-import { useA11yDialog } from './useA11yDialog'
+import { useA11yDialog } from '../useA11yDialog'
 
 export type A11yDialogProps = JSX.HTMLAttributes<HTMLDivElement> & {
   classNames?: {
