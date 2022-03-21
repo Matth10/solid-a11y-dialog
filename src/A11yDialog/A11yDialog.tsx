@@ -12,16 +12,21 @@ export type ProviderProps = Pick<JSX.HTMLAttributes<HTMLElement>, 'children'> & 
   role?: DialogRole
 }
 
-const defaultProps: ProviderProps = {role: 'dialog'}
+const defaultProps: ProviderProps = { role: 'dialog' }
 
 const A11yDialog = (props: ProviderProps) => {
   const mergedProps = mergeProps(defaultProps, props)
 
-  const {instance, ref, show, hide} = useA11yDialogInstance()
+  const { instance, ref, show, hide } = useA11yDialogInstance()
   const [titleId, setTitleId] = createSignal(createUniqueId())
 
   return (
-    <a11yDialogContext.Provider value={[{role: mergedProps.role!, instance, titleId}, {ref, hide, show, setTitleId}]}>
+    <a11yDialogContext.Provider
+      value={[
+        { role: mergedProps.role!, instance, titleId },
+        { ref, hide, show, setTitleId },
+      ]}
+    >
       {mergedProps.children}
     </a11yDialogContext.Provider>
   )

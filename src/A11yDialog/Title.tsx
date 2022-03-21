@@ -8,17 +8,17 @@ export type TitleProps = JSX.HTMLAttributes<HTMLHeadingElement> & {
 }
 
 const defaultProps: TitleProps = {
-  level: 1
+  level: 1,
 }
 
 export const Title = (props: TitleProps) => {
   const [local, rest] = splitProps(mergeProps(defaultProps, props), ['id', 'level', 'children'])
 
-  const [state, {setTitleId}] = useContext(a11yDialogContext)
+  const [state, { setTitleId }] = useContext(a11yDialogContext)
 
   createEffect(() => {
     // Update titleId to update aria-labelledby of the container
-    if(local.id) setTitleId?.(local.id)
+    if (local.id) setTitleId?.(local.id)
   })
 
   return (

@@ -6,7 +6,7 @@ export type CloseProps = JSX.HTMLAttributes<HTMLButtonElement>
 export const Close = (props: CloseProps) => {
   const [local, rest] = splitProps(props, ['children', 'aria-label'])
 
-  const [_, {hide}] = useContext(a11yDialogContext)
+  const [_, { hide }] = useContext(a11yDialogContext)
   const ariaLabel = local['aria-label'] || 'Close Dialog'
 
   return (

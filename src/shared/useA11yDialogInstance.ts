@@ -11,11 +11,17 @@ type UseA11yDialogInstanceResult = {
 export const useA11yDialogInstance = (): UseA11yDialogInstanceResult => {
   const [instance, setInstance] = createSignal<A11yDialogInstance | null>()
 
-  const ref = (node: Element) => {node ? setInstance(new A11yDialogInstance(node)) : null}
-  const hide = () => {instance()?.hide()}
-  const show = () => {instance()?.show()}
+  const ref = (node: Element) => {
+    node ? setInstance(new A11yDialogInstance(node)) : null
+  }
+  const hide = () => {
+    instance()?.hide()
+  }
+  const show = () => {
+    instance()?.show()
+  }
 
   onCleanup(() => instance()?.destroy())
 
-  return {instance, ref, show, hide}
+  return { instance, ref, show, hide }
 }

@@ -15,4 +15,4 @@ export type A11yDialogContext = [
   }
 ]
 
-export const a11yDialogContext = createContext<A11yDialogContext>([{role: 'dialog'}, {}])
+export const a11yDialogContext = createContext<A11yDialogContext>([{ role: 'dialog' }, {}])

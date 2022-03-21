@@ -10,10 +10,18 @@ export const Container = (props: ContainerProps) => {
   const [local, rest] = splitProps(props, ['id', 'children', 'class'])
 
   const id = local.id || createUniqueId()
-  const [state, {ref}] = useContext(a11yDialogContext)
+  const [state, { ref }] = useContext(a11yDialogContext)
 
   return (
-    <div ref={ref} class={`${local.class} ${styles['a11ydialog-container']}`} role={state.role} id={id} aria-hidden={true} aria-labelledby={state.titleId && state.titleId()} {...rest}>
+    <div
+      ref={ref}
+      class={`${local.class} ${styles['a11ydialog-container']}`}
+      role={state.role}
+      id={id}
+      aria-hidden={true}
+      aria-labelledby={state.titleId && state.titleId()}
+      {...rest}
+    >
       {local.children}
     </div>
   )
