@@ -17,13 +17,13 @@ const defaultProps: ProviderProps = { role: 'dialog' }
 const A11yDialog = (props: ProviderProps) => {
   const mergedProps = mergeProps(defaultProps, props)
 
-  const { instance, ref, show, hide } = useA11yDialogInstance()
+  const { instance, ref, show, hide, isOpen } = useA11yDialogInstance()
   const [titleId, setTitleId] = createSignal(createUniqueId())
 
   return (
     <a11yDialogContext.Provider
       value={[
-        { role: mergedProps.role!, instance, titleId },
+        { role: mergedProps.role!, instance, titleId, isOpen },
         { ref, hide, show, setTitleId },
       ]}
     >

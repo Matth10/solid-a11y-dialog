@@ -6,6 +6,7 @@ export type A11yDialogContext = [
     role: 'dialog' | 'alertdialog'
     instance?: Accessor<A11yDialogInstance | undefined | null>
     titleId?: Accessor<string>
+    isOpen?: Accessor<boolean>
   },
   {
     ref?: (node: Element) => void
