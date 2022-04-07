@@ -1,5 +1,6 @@
 import { createEffect, JSX, mergeProps, splitProps, useContext } from 'solid-js'
 import { Dynamic } from 'solid-js/web'
+
 import { a11yDialogContext } from './context'
 
 export type TitleProps = JSX.HTMLAttributes<HTMLHeadingElement> & {
@@ -12,7 +13,8 @@ const defaultProps: TitleProps = {
 }
 
 export const Title = (props: TitleProps) => {
-  const [local, rest] = splitProps(mergeProps(defaultProps, props), ['id', 'level', 'children'])
+  const mergedProps = mergeProps(defaultProps, props)
+  const [local, rest] = splitProps(mergedProps, ['id', 'level', 'children'])
 
   const [state, { setTitleId }] = useContext(a11yDialogContext)
 

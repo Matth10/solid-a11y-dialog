@@ -1,4 +1,5 @@
 import { cleanup, fireEvent, render, screen } from 'solid-testing-library'
+
 import A11yDialog from './A11yDialog'
 
 describe('<A11Dialog/>', () => {

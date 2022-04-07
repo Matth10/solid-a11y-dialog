@@ -1,11 +1,11 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import { defineConfig } from 'vite'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import solidPlugin from 'vite-plugin-solid'
+import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import solidPlugin from 'vite-plugin-solid'
 
 import pkg from './package.json'
 
@@ -24,7 +24,7 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
-    conditions: ['development', 'browser']
+    conditions: ['development', 'browser'],
   },
   test: {
     environment: 'jsdom',
@@ -56,5 +56,5 @@ export default defineConfig({
     },
     target: 'esnext',
     polyfillDynamicImport: false,
-  }
+  },
 })

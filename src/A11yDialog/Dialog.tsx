@@ -1,4 +1,4 @@
-import { JSX, splitProps } from 'solid-js'
+import { JSX } from 'solid-js'
 
 export type DialogProps = JSX.HTMLAttributes<HTMLDivElement>
 

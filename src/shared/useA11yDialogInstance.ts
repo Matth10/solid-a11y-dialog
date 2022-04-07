@@ -1,5 +1,5 @@
-import { Accessor, createSignal, onCleanup, onMount } from 'solid-js'
 import A11yDialogInstance from 'a11y-dialog'
+import { Accessor, createSignal, onCleanup, onMount } from 'solid-js'
 
 type UseA11yDialogInstanceResult = {
   instance: Accessor<A11yDialogInstance | null | undefined>

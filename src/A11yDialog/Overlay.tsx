@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { JSX, splitProps, useContext } from 'solid-js'
+
 import { a11yDialogContext } from './context'
 
 export type OverlayProps = JSX.HTMLAttributes<HTMLDivElement>

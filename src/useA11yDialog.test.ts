@@ -1,5 +1,6 @@
 import { createRoot } from 'solid-js'
 import { describe, expect, it } from 'vitest'
+
 import { useA11yDialog } from './useA11yDialog'
 
 describe('useA11yDialog', () => {

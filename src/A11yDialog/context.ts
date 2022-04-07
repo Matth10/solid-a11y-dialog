@@ -1,5 +1,5 @@
-import { Accessor, createContext } from 'solid-js'
 import A11yDialogInstance from 'a11y-dialog'
+import { Accessor, createContext } from 'solid-js'
 
 export type A11yDialogContext = [
   {

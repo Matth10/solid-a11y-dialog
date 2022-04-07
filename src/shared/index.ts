@@ -1,2 +1,2 @@
-export * from './useA11yDialogInstance'
 export * from './types'
+export * from './useA11yDialogInstance'
