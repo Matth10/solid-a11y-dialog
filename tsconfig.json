@@ -4,13 +4,17 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true,
     "esModuleInterop": true,
+    "outDir": "dist",
     "declaration": true,
-    "declarationDir": "dist/dts",
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"]
-  }
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "types": ["vite/client"],
+    "baseUrl": "./"
+  },
+  "include": ["vite.config.*", "src/**/*", "src/**/*.tsx"]
 }

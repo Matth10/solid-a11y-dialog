@@ -3,10 +3,29 @@
 
 import { defineConfig } from 'vite'
 import path from 'path'
+import { fileURLToPath } from 'url'
 import solidPlugin from 'vite-plugin-solid'
+import dts from 'vite-plugin-dts'
+
+import pkg from './package.json'
 
 export default defineConfig({
-  plugins: [solidPlugin()],
+  plugins: [
+    solidPlugin(),
+    dts({
+      tsConfigFilePath: 'tsconfig.build.json',
+      insertTypesEntry: true,
+      noEmitOnError: true,
+      skipDiagnostics: false,
+      logDiagnostics: true,
+    }),
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+    conditions: ['development', 'browser']
+  },
   test: {
     environment: 'jsdom',
     globals: true,
@@ -33,13 +52,9 @@ export default defineConfig({
       fileName: format => `index.${format}.js`,
     },
     rollupOptions: {
-      external: ['solid-js'],
+      external: [...Object.keys(pkg.dependencies), 'solid-js/web', 'solid-js/store'],
     },
     target: 'esnext',
     polyfillDynamicImport: false,
-  },
-
-  resolve: {
-    conditions: ['development', 'browser'],
-  },
+  }
 })
