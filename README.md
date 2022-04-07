@@ -1,6 +1,7 @@
 # Solid A11y Dialog
 
 ![example workflow](https://github.com/Matth10/solid-a11y-dialog/actions/workflows/main.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/Matth10/solid-a11y-dialog/badge.svg?branch=master)](https://coveralls.io/github/Matth10/solid-a11y-dialog?branch=master)
 
 Solid implementation of a11y-dialog to build lightweight yet flexible script to create accessible dialog windows
 
