@@ -10,8 +10,8 @@ describe('useA11yDialog', () => {
         const [instance, props] = useA11yDialog()
         const [instance_1, props_1] = useA11yDialog({ id: 'some-id' })
 
-        expect(props.containerProps.id).toBeDefined()
-        expect(props_1.containerProps.id).toBe('some-id')
+        expect(props().containerProps.id).toBeDefined()
+        expect(props_1().containerProps.id).toBe('some-id')
         dispose()
       })
     })
@@ -20,7 +20,7 @@ describe('useA11yDialog', () => {
       createRoot(dispose => {
         const [instance, props] = useA11yDialog()
 
-        expect(props.containerProps['aria-hidden']).toBeTruthy()
+        expect(props().containerProps['aria-hidden']).toBeTruthy()
         dispose()
       })
     })
@@ -29,7 +29,7 @@ describe('useA11yDialog', () => {
       createRoot(dispose => {
         const [instance, props] = useA11yDialog()
 
-        expect(props.containerProps.role).toBe('dialog')
+        expect(props().containerProps.role).toBe('dialog')
         dispose()
       })
     })
@@ -38,7 +38,7 @@ describe('useA11yDialog', () => {
       createRoot(dispose => {
         const [instance, props] = useA11yDialog({ role: 'alertdialog' })
 
-        expect(props.containerProps.role).toBe('alertdialog')
+        expect(props().containerProps.role).toBe('alertdialog')
         dispose()
       })
     })
@@ -48,8 +48,8 @@ describe('useA11yDialog', () => {
         const [instance, props] = useA11yDialog()
         const [instance_1, props_1] = useA11yDialog({ titleId: 'some-id' })
 
-        expect(props.containerProps['aria-labelledby']).toBeDefined()
-        expect(props_1.containerProps['aria-labelledby']).toBe('some-id')
+        expect(props().containerProps['aria-labelledby']).toBeDefined()
+        expect(props_1().containerProps['aria-labelledby']).toBe('some-id')
         dispose()
       })
     })
@@ -60,7 +60,7 @@ describe('useA11yDialog', () => {
       createRoot(dispose => {
         const [instance, props] = useA11yDialog()
 
-        expect(props.overlayProps.onClick).toBeDefined()
+        expect(props().overlayProps.onClick).toBeDefined()
         dispose()
       })
     })
@@ -68,7 +68,7 @@ describe('useA11yDialog', () => {
       createRoot(dispose => {
         const [instance, props] = useA11yDialog({ role: 'alertdialog' })
 
-        expect(props.overlayProps.onClick).not.toBeDefined()
+        expect(props().overlayProps.onClick).not.toBeDefined()
         dispose()
       })
     })
@@ -79,7 +79,7 @@ describe('useA11yDialog', () => {
       createRoot(dispose => {
         const [instance, props] = useA11yDialog({ role: 'alertdialog' })
 
-        expect(props.dialogProps.role).toBe('document')
+        expect(props().dialogProps.role).toBe('document')
         dispose()
       })
     })
@@ -89,7 +89,7 @@ describe('useA11yDialog', () => {
       createRoot(dispose => {
         const [instance, props] = useA11yDialog()
 
-        expect(props.closeButtonProps.type).toBe('button')
+        expect(props().closeButtonProps.type).toBe('button')
         dispose()
       })
     })
@@ -97,7 +97,7 @@ describe('useA11yDialog', () => {
       createRoot(dispose => {
         const [instance, props] = useA11yDialog()
 
-        expect(props.closeButtonProps.onClick).toBeDefined()
+        expect(props().closeButtonProps.onClick).toBeDefined()
         dispose()
       })
     })
