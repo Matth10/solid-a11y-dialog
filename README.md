@@ -35,17 +35,17 @@ export const A11yDialog = (props: A11yDialogProps): JSX.Element => {
   return (
     <>
       <button onClick={openModal}>Open Modal</button>
-      <div {...attrs.containerProps} class={local.classNames?.container} {...rest}>
-        <div {...attrs.overlayProps} class={local.classNames?.overlay}></div>
-        <div {...attrs.dialogProps} class={local.classNames?.dialog}>
+      <div {...attrs().containerProps} class={local.classNames?.container} {...rest}>
+        <div {...attrs().overlayProps} class={local.classNames?.overlay}></div>
+        <div {...attrs().dialogProps} class={local.classNames?.dialog}>
           <button
-            {...attrs.closeButtonProps}
+            {...attrs().closeButtonProps}
             class={local.classNames?.closeButton}
             aria-label="Close dialog"
           >
             &times;
           </button>
-          <h1 {...attrs.titleProps}>Your dialog title</h1>
+          <h1 {...attrs().titleProps}>Your dialog title</h1>
           {props.children}
         </div>
       </div>
