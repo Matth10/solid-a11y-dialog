@@ -1,4 +1,5 @@
 import { cleanup, fireEvent, render, screen } from 'solid-testing-library'
+import { describe, expect, afterEach, it } from 'vitest'
 
 import A11yDialog from './A11yDialog'
 
