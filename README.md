@@ -59,7 +59,7 @@ export const A11yDialog = (props: A11yDialogProps): JSX.Element => {
 
 ### Component Mode
 
-On the other hand, you can have a set of components to create your own `<Dialog/>`. This method will help you setup some HTML semantic and some basic styling.
+On the other hand, you can have a set of components to create your own `<Dialog/>`. This method will help you setup the HTML semantic and some basic styling.
 
 ```tsx
 export const A11yDialog = (props: A11yDialogProps): JSX.Element => {
