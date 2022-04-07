@@ -12,6 +12,7 @@ export const Overlay = (props: OverlayProps) => {
 
   return (
     <div
+      data-testid="overlay"
       style={{ 'background-color': 'gray' }}
       onClick={state.role === 'dialog' ? hide : undefined}
       {...rest}

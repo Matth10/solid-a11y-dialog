@@ -80,7 +80,7 @@ describe('<A11Dialog/>', () => {
 
     expect(screen.getByRole('dialog', { hidden: true }).getAttribute('aria-hidden')).toBe('true')
     const button = screen.getByText('Open Dialog') as HTMLButtonElement
-    await clickButton(button)
+    await click(button)
 
     expect(screen.getByRole('dialog').getAttribute('aria-hidden')).toBe(null)
   })
@@ -99,18 +99,71 @@ describe('<A11Dialog/>', () => {
     ))
 
     const button = screen.getByText('Open Dialog') as HTMLButtonElement
-    await clickButton(button)
+    await click(button)
     expect(screen.getByRole('dialog').getAttribute('aria-hidden')).toBe(null)
 
     const close = screen.getByText('Close Dialog') as HTMLButtonElement
-    await clickButton(close)
+    await click(close)
     expect(screen.getByRole('dialog', { hidden: true }).getAttribute('aria-hidden')).toBe('true')
+  })
+
+  describe('<A11yDialog.Overlay />', () => {
+    afterEach(cleanup)
+
+    it('should let the user close the dialog by clicking on it if the dialog has a role="dialog"', async () => {
+      render(() => (
+        <A11yDialog role="dialog">
+          <A11yDialog.Open>Open Dialog</A11yDialog.Open>
+          <A11yDialog.Container>
+            <A11yDialog.Overlay></A11yDialog.Overlay>
+            <A11yDialog.Dialog>
+              <A11yDialog.Close>Close Dialog</A11yDialog.Close>
+              <A11yDialog.Title>Title</A11yDialog.Title>
+            </A11yDialog.Dialog>
+          </A11yDialog.Container>
+        </A11yDialog>
+      ))
+
+      await openDialog()
+      expect(screen.getByRole('dialog').getAttribute('aria-hidden')).toBe(null)
+
+      const close = screen.getByTestId('overlay') as HTMLDivElement
+      await click(close)
+      expect(screen.getByRole('dialog', { hidden: true }).getAttribute('aria-hidden')).toBe('true')
+    })
+
+    it('should not let the user close the dialog by clicking on it if the dialog has a role="alertdialog"', async () => {
+      render(() => (
+        <A11yDialog role="alertdialog">
+          <A11yDialog.Open>Open Dialog</A11yDialog.Open>
+          <A11yDialog.Container>
+            <A11yDialog.Overlay></A11yDialog.Overlay>
+            <A11yDialog.Dialog>
+              <A11yDialog.Close>Close Dialog</A11yDialog.Close>
+              <A11yDialog.Title>Title</A11yDialog.Title>
+            </A11yDialog.Dialog>
+          </A11yDialog.Container>
+        </A11yDialog>
+      ))
+
+      await openDialog()
+      expect(screen.getByRole('alertdialog').getAttribute('aria-hidden')).toBe(null)
+
+      const close = screen.getByTestId('overlay') as HTMLDivElement
+      await click(close)
+      expect(screen.getByRole('alertdialog').getAttribute('aria-hidden')).toBe(null)
+    })
   })
 })
 
-async function clickButton(button?: HTMLButtonElement) {
-  if (!button) return
+async function click(element?: HTMLElement | undefined) {
+  if (!element) return
 
-  fireEvent.click(button)
+  fireEvent.click(element)
   await Promise.resolve()
+}
+
+async function openDialog() {
+  const button = screen.getByText('Open Dialog') as HTMLButtonElement
+  await click(button)
 }
