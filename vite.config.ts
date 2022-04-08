@@ -50,9 +50,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'index',
       formats: ['es', 'cjs'],
-      fileName: format => `index.${format}.js`,
+      fileName: format => (format === 'es' ? 'index.mjs' : 'index.cjs'),
     },
     rollupOptions: {
       external: [...Object.keys(pkg.dependencies), 'solid-js/web', 'solid-js/store'],
