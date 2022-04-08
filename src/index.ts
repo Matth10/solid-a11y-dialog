@@ -1,2 +1,2 @@
+export * from './A11yDialog/A11yDialog'
 export * from './useA11yDialog'
-export default './A11yDialog'

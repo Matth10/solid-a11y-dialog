@@ -40,4 +40,4 @@ A11yDialog.Close = Close
 A11yDialog.Open = Open
 A11yDialog.Overlay = Overlay
 
-export default A11yDialog
+export { A11yDialog }
